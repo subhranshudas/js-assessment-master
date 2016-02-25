@@ -20,10 +20,21 @@ exports.arraysAnswers = {
   },
 
   remove : function(arr, item) {
-
+    var tp =[];
+   
+    for(var i=0;i<arr.length;i++){
+      if(arr[i] !== item){
+        tp.push(arr[i]);
+      }
+    }
+    return tp;
   },
 
   removeWithoutCopy : function(arr, item) {
+    while(arr.indexOf(item) > -1){
+     arr.splice(arr.indexOf(item),1)
+    }
+    return arr;
 
   },
 

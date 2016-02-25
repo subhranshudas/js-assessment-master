@@ -46,7 +46,11 @@ exports.functionsAnswers = {
   },
 
   partialUsingArguments : function(fn) {
-    
+    var rArgs = Array.prototype.slice.call(arguments,1,arguments.length); 
+    return function(){
+        var res = rArgs.concat(Array.prototype.map.call(arguments,function(item){ return item}));
+        return fn.apply(this,res);
+    }
   },
 
   curryIt : function(fn) {
